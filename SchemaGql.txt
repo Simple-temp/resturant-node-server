@@ -1,0 +1,369 @@
+query getAllUser {
+  users {
+    _id
+    name
+    email
+    password
+    isAdmin
+  }
+}
+
+============================
+
+query getuserById ( $userid : ID! ){
+  user (_id : $userid){
+    _id
+    name
+    email
+    password
+    isAdmin
+  }
+}
+
+{
+  "userid": "2"
+}
+
+============================
+
+mutation signupUser ( $userInfo : createUser! ){
+  createuser( createUser : $userInfo){
+    _id
+    name
+    email
+    password
+    isAdmin
+  }
+}
+
+{
+  "userInfo": {
+    "name": "new user",
+    "email": "new@yahoo.com",
+    "password": "12",
+    "isAdmin": false
+  }
+}
+
+=============================
+
+mutation deluser ( $userid : ID! ){
+  deluser (_id : $userid){
+    _id
+    name
+    email
+    password
+    isAdmin
+  }
+}
+
+{
+  "userid": "2"
+}
+
+=============================
+
+mutation loginuser ( $userInfo : loginUser! ){
+  loginuser (loginUser : $userInfo){
+    _id
+    name
+    email
+    password
+    isAdmin
+    token
+  }
+}
+
+
+{
+  "userInfo": {
+    "email": "new@yahoo.com",
+    "password": "12"
+  }
+}
+
+=============================
+
+mutation updateuser ( $updateUser : updateUser! ){
+  updateuser (updateUser : $updateUser ){
+    _id
+    name
+    email
+    password
+    isAdmin
+  }
+}
+
+{
+  "updateUser": {
+    "name": "Ridoy",
+    "email": "Ridoy@gmail.com",
+    "password": "12",
+    "isAdmin": false
+  }
+}
+
+=============================
+
+{
+  "authorization" : "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MmQ1YTE3NjQ4YzZiNTRkNWY2ZGE2NWUiLCJuYW1lIjoiQXppeiIsInBhc3N3b3JkIjoiJDJhJDEyJDBnM3dOTXplY0RIRXFiT2pCTE9sVi5Edk1TNVZRVVZjcnAvSHB2bXRWZHZPODNKR1hYb1NHIiwiaXNBZG1pbiI6dHJ1ZSwiaWF0IjoxNjU4MTcxMDU3LCJleHAiOjE2NTgyNTc0NTd9.mynGgrKsXscxejtcMwjZ2l3LGrIp7WlSnrtfyVXYg9M"
+}
+
+=============================
+
+query getAllFoods {
+  foods {
+    _id
+    name 
+    img 
+    quantity
+    price 
+    des 
+    rating 
+    review 
+    stock 
+  }
+}
+
+=============================
+
+query getFoodsById ( $foodId : ID! ){
+  food (_id : $foodId){
+    _id
+    name 
+    img 
+    quantity
+    price 
+    des 
+    rating 
+    review 
+    stock 
+  }
+}
+
+{
+  "foodId": "3"
+}
+
+============================
+
+mutation delfood ( $foodId : ID! ){
+  delfood(_id : $foodId){
+    _id
+    name 
+    img 
+    quantity
+    price 
+    des 
+    rating 
+    review 
+    stock 
+  }
+}
+
+{
+  "foodId": "62d6bb2f5cb3614d045cb87c"
+}
+
+===========================
+
+mutation createfood ( $createFood : createFood! ){
+  createfood(createFood : $createFood ){
+    _id
+    name 
+    img 
+    quantity
+    price 
+    des 
+    rating 
+    review 
+    stock 
+  }
+}
+
+{
+  "createFood": {
+    "name": "Burger3",
+    "img": "https://ibb.co/Qk4ZydG",
+    "quantity": 1,
+    "price": 30,
+    "des": "Want to know where this information comes from? Learn more Images may be subject to copyright",
+    "rating": 3.4,
+    "review": 22,
+    "stock": 3
+  }
+}
+
+===========================
+
+mutation updatefood ( $updateFood : updateFood! ){
+  updatefood(updateFood : $updateFood){
+    _id
+    name 
+    img 
+    quantity
+    price 
+    des 
+    rating 
+    review 
+    stock 
+  }
+}
+
+{
+  "updateFood": {
+    "_id": "62d6bb2b5cb3614d045cb87a",
+    "name": "Nacosh",
+    "img": "https://ibb.co/Qk4ZydG",
+    "quantity": 1,
+    "price": 30,
+    "des": "Want to know where this information comes from? Learn more Images may be subject to copyright",
+    "rating": 3.4,
+    "review": 22,
+    "stock": 3
+  }
+}
+
+============================
+
+query getAllorders {
+  orders {
+    _id
+    userid
+    foodItem {
+        _id
+    		name 
+    		img 
+    		quantity
+   			price 
+    		des 
+    		rating 
+    		review 
+    		stock 
+    }
+    paymentMethod
+    itemPrice
+    totalPrice
+    isPaid
+    paidAt
+    isDelivered
+    devliveredAt
+  }
+}
+
+=============================
+
+query getOrdersByI ( $orderid : ID! ) {
+  order(_id : $orderid){
+    _id
+    userid
+    foodItem {
+        _id
+    		name 
+    		img 
+    		quantity
+   			price 
+    		des 
+    		rating 
+    		review 
+    		stock 
+    }
+    paymentMethod
+    itemPrice
+    totalPrice
+    isPaid
+    paidAt
+    isDelivered
+    devliveredAt
+  }
+}
+
+{
+  "orderid": "11"
+}
+
+==========================
+
+query myorder{
+  myorders{
+    _id
+    userid
+    foodItem {
+        _id
+    		name 
+    		img 
+    		quantity
+   			price 
+    		des 
+    		rating 
+    		review 
+    		stock 
+    }
+    paymentMethod
+    itemPrice
+    totalPrice
+    isPaid
+    paidAt
+    isDelivered
+    devliveredAt
+  }
+}
+
+{
+  "authorization" : "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MmQ1YTkyZDY1NzkwZTE3MGZjMTBhMWEiLCJuYW1lIjoiS2F5ZXMiLCJwYXNzd29yZCI6IiQyYSQxMiR6WW9RR3FRV2pzSElQOFZ5OUlGNTBlNTdiZmVVLm1uSEdPamVrb1ljNWxHZTM0aHJTRThRRyIsImlzQWRtaW4iOmZhbHNlLCJpYXQiOjE2NTgyNDkzMzgsImV4cCI6MTY1ODMzNTczOH0.I9oQUOt3DkPKB2L-pctB2_AWryqvsfQN0KL46VAJM_g"
+}
+
+==========================
+
+mutation deleteorder ( $orderId : ID! ){
+  delorder(_id : $orderId){
+    _id
+    userid
+    foodItem {
+        _id
+    		name 
+    		img 
+    		quantity
+   			price 
+    		des 
+    		rating 
+    		review 
+    		stock 
+    }
+    paymentMethod
+    itemPrice
+    totalPrice
+    isPaid
+    paidAt
+    isDelivered
+    devliveredAt
+  }
+}
+
+{
+  "orderId": "62d6e0a7c25dc763defd3d8d"
+}
+
+==========================
+
+mutation ispaid ( $orderId : ID! ){
+  ispaid(_id : $orderId){
+    isPaid
+  }
+}
+
+{
+  "orderId": "w3rrrrtry6r4hbd"
+}
+
+==========================
+
+mutation isdelivered ( $orderId : ID! ){
+  isdelivered(_id : $orderId){
+    isDelivered
+  }
+}
+
+{
+  "orderId": "xyrf8buyu5tvbk7u"
+}

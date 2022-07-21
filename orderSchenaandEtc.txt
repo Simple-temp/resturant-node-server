@@ -1,0 +1,49 @@
+mutation createorder( $createOrder : createOrder!){
+  createorder(createOrder : $createOrder){
+    _id
+    userid
+    foodItem {
+            _id
+    		name 
+    		img 
+    		quantity
+   			price 
+    		des 
+    		rating 
+    		review 
+    		stock 
+    }
+    paymentMethod
+    itemPrice
+    totalPrice
+    isPaid
+    paidAt
+    isDelivered
+    devliveredAt
+  }
+}
+
+{
+  "createOrder": {
+    "userid": "62d58d9c1b975b0be5221841",
+    "foodItem": [
+      {
+        "name": "Pizza",
+        "img": "https://ibb.co/Qk4ZydG",
+        "quantity": 1,
+        "price": 30,
+        "des": "Want to know where this information comes from? Learn more Images may be subject to copyright",
+        "rating": 3.4,
+        "review": 22,
+        "stock": 3
+      }
+    ],
+    "paymentMethod": "PayPal",
+    "itemPrice": 20,
+    "totalPrice": 23.8,
+    "isPaid": false,
+    "paidAt": null,
+    "isDelivered": false,
+    "devliveredAt": null
+  }
+}
