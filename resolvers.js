@@ -35,15 +35,21 @@ const resolvers = {
             const hashPassword = await bcrypt.hash(createUser.password, 12)
 
             const newUser = new User({
-                _id : createUser._id,
                 name : createUser.name,
                 email : createUser.email,
                 password : hashPassword,
-                isAdmin : createUser.isAdmin,
-                token : generateToken(createUser)
             })
 
-            return await newUser.save()
+            const createdUser = await newUser.save()
+
+            return ({
+                _id : createdUser._id,
+                name : createdUser.name,
+                email : createdUser.email,
+                password : hashPassword,
+                isAdmin : createdUser.isAdmin,
+                token : generateToken(createdUser)
+            })
 
         },
         loginuser : async (_,{loginUser}) =>{
