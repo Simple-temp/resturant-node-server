@@ -94,10 +94,9 @@ const resolvers = {
                 if(updateUser.password){
                     user.password = bcrypt.hashSync(updateUser.password, 12) || user.password 
                 }
-                user.isAdmin = updateUser.isAdmin || user.isAdmin 
             }
 
-            return user.save()
+            return await user.save()
 
         },
 

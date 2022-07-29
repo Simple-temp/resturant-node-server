@@ -79,7 +79,6 @@ const typeDefs = gql `
         name : String!
         email : String!
         password : String!
-        isAdmin : Boolean!
     }
 
     input createFood {
