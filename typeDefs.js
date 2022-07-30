@@ -76,8 +76,8 @@ const typeDefs = gql `
     }
 
     input updateUser {
-        name : String!
-        email : String!
+        name : String
+        email : String
         password : String!
     }
 
