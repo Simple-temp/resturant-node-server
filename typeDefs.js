@@ -33,12 +33,20 @@ const typeDefs = gql `
         stock : Int!
     }
 
+    type Shipping {
+        country : String!
+        address : String!
+        postalCode : String!
+        phone : String!
+    }
+
     scalar Date
 
     type Orders {
         _id : ID!
         userid : ID!
         foodItem : [Foods]
+        shippingAddress : Shipping
         paymentMethod : String!
         itemPrice : Int!
         totalPrice : Float!

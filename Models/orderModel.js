@@ -24,6 +24,12 @@ const orderSchema = (
                 }
             }
         ],
+        shippingAddress : {
+            country : { type: String, require: true},
+            address : { type: String, require: true},
+            postalCode : { type: String, require: true},
+            phone : { type: String, require: true},
+        },
         paymentMethod : { type: String, require: true},
         itemPrice : { type: Number, require: true},
         totalPrice : { type: Number, require: true},
