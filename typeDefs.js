@@ -112,15 +112,35 @@ const typeDefs = gql `
         stock : Int!
     }
 
+    input OrderedFood {
+        _id : ID!
+        name : String!
+        img : String!
+        quantity : Int!
+        price : Float!
+        des : String!
+        rating : Float!
+        review : Int!
+        stock : Int!
+    } 
+
+    input ShippingADDress {
+        country : String!
+        address : String!
+        postalCode : String!
+        phone : String!
+    }
+
     input createOrder {
         userid : ID!
-        foodItem : [createFood]
+        foodItem : [OrderedFood] 
+        shippingAddress : ShippingADDress
         paymentMethod : String!
         itemPrice : Int!
         totalPrice : Float!
-        isPaid : Boolean!
+        isPaid : Boolean
         paidAt : Date
-        isDelivered : Boolean!
+        isDelivered : Boolean
         devliveredAt : Date
     }
 

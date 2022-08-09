@@ -3,7 +3,7 @@ mutation createorder( $createOrder : createOrder!){
     _id
     userid
     foodItem {
-            _id
+        _id
     		name 
     		img 
     		quantity
@@ -12,6 +12,12 @@ mutation createorder( $createOrder : createOrder!){
     		rating 
     		review 
     		stock 
+    }
+    shippingAddress {
+      country
+      address
+      postalCode
+      phone
     }
     paymentMethod
     itemPrice
@@ -38,6 +44,12 @@ mutation createorder( $createOrder : createOrder!){
         "stock": 3
       }
     ],
+    "shippingAddress": {
+      "country" : "Bangladesh",
+      "address" : "Kushtia , Khulna",
+      "postalCode" :"7002",
+      "phone" :"01409 447002"
+    },
     "paymentMethod": "PayPal",
     "itemPrice": 20,
     "totalPrice": 23.8,
