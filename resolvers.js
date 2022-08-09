@@ -126,12 +126,12 @@ const resolvers = {
             if(food){
                 food.name = updateFood.name || food.name 
                 food.img = updateFood.img || food.img 
-                food.quantity = updateFood.quantity || food.quantity 
+                food.quantity = updateFood.quantity || 1 
                 food.price = updateFood.price || food.price 
                 food.des = updateFood.des || food.des 
                 food.rating = updateFood.rating || food.rating 
                 food.review = updateFood.review || food.review 
-                food.stock = updateFood.stock || food.stock 
+                food.stock = updateFood.stock || food.stock
             }
 
             return await food.save()

@@ -102,14 +102,14 @@ const typeDefs = gql `
 
     input updateFood {
         _id : ID!
-        name : String!
-        img : String!
-        quantity : Int!
-        price : Float!
-        des : String!
-        rating : Float!
-        review : Int!
-        stock : Int!
+        name : String
+        img : String
+        quantity : Int
+        price : Float
+        des : String
+        rating : Float
+        review : Int
+        stock : Int
     }
 
     input OrderedFood {
