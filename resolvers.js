@@ -100,6 +100,16 @@ const resolvers = {
 
         },
 
+        makeAdmin : async (_,{_id}) => {
+
+            const admin = await  User.findById({_id})
+            if(admin){
+                admin.isAdmin = true
+            }
+
+            return await admin.save()
+        },
+
         // =========================================================================================================
 
         createfood : async (_,{createFood}) =>{
