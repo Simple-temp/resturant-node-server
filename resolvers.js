@@ -109,6 +109,15 @@ const resolvers = {
 
             return await admin.save()
         },
+        removeAdmin : async (_,{_id}) =>{
+
+            const admin = await  User.findById({_id})
+            if(admin){
+                admin.isAdmin = false
+            }
+
+            return await admin.save()
+        },
 
         // =========================================================================================================
 

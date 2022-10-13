@@ -62,6 +62,7 @@ const typeDefs = gql `
         loginuser ( loginUser : loginUser! ) : Users
         updateuser ( updateUser : updateUser! ) : Users
         makeAdmin ( _id : ID! ) : Users
+        removeAdmin ( _id : ID!) : Users
 
         createfood ( createFood : createFood! ) : Foods
         delfood ( _id : ID! ) : Foods
