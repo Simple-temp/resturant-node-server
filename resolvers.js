@@ -3,11 +3,13 @@ import User from "./Models/userModel.js";
 import Food from "./Models/foodModel.js";
 import Order from "./Models/orderModel.js";
 import { generateToken } from "./generateToken.js";
+import Review from "./Models/reviewModels.js";
 
 
 const resolvers = {
 
     Query : {
+        review : async ()=> await Review.find({}),
         users : async ()=> await User.find({}),
         user : async (_,{_id})=> await User.findById({_id}),
         foods : async ()=> await Food.find({}),
@@ -126,6 +128,18 @@ const resolvers = {
             const newFood = new Food({
                 ...createFood
             })
+
+            return await newFood.save()
+
+        },
+
+        createreview : async (_,{createReview}) =>{
+
+            const newFood = new Review({
+                ...createReview
+            })
+
+            console.log(newFood)
 
             return await newFood.save()
 

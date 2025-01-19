@@ -3,6 +3,7 @@ import { gql } from "apollo-server-express"
 const typeDefs = gql `
 
     type Query {
+        review : [Review]
         users : [Users]
         user ( _id : ID! ) : Users
         foods : [Foods]
@@ -56,7 +57,14 @@ const typeDefs = gql `
         devliveredAt : Date
     }
 
+    type Review {
+        _id : ID!
+        message : String!
+    }
+
     type Mutation {
+
+        createreview ( createReview : createReview! ) : Review
         createuser ( createUser : createUser! ) : Users
         deluser ( _id : ID! ) : Users
         loginuser ( loginUser : loginUser! ) : Users
@@ -72,6 +80,10 @@ const typeDefs = gql `
         delorder ( _id : ID! ) : Orders
         ispaid ( _id : ID! ) : Orders
         isdelivered ( _id : ID! ) : Orders
+    }
+
+    input createReview {
+        message: String!
     }
 
     input createUser {
