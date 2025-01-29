@@ -11,6 +11,7 @@ const typeDefs = gql `
         orders : [Orders]
         order ( _id : ID! ) : Orders
         myorders : [Orders]
+        message : [Message]
     }
 
     type Users{
@@ -20,6 +21,19 @@ const typeDefs = gql `
         password : String!
         isAdmin : Boolean!
         token : String!
+    }
+
+    type Message{
+        _id : ID!
+        name : String!
+        email : String!
+        phone : String!
+        message : String!
+    }
+
+    type NewsLetter{
+        _id : ID!
+        newletter : String!
     }
 
     type Foods {
@@ -64,7 +78,9 @@ const typeDefs = gql `
 
     type Mutation {
 
+        createnewsletter ( createNewsletter : createNewsletter! ) : NewsLetter
         createreview ( createReview : createReview! ) : Review
+        createmessage ( createMessage : createMessage! ) : Message
         createuser ( createUser : createUser! ) : Users
         deluser ( _id : ID! ) : Users
         loginuser ( loginUser : loginUser! ) : Users
@@ -80,6 +96,17 @@ const typeDefs = gql `
         delorder ( _id : ID! ) : Orders
         ispaid ( _id : ID! ) : Orders
         isdelivered ( _id : ID! ) : Orders
+    }
+
+    input createNewsletter {
+        newletter: String!
+    }
+
+    input createMessage{
+        name : String!
+        email : String!
+        phone : String!
+        message : String!
     }
 
     input createReview {

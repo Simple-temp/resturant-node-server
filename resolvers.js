@@ -4,6 +4,8 @@ import Food from "./Models/foodModel.js";
 import Order from "./Models/orderModel.js";
 import { generateToken } from "./generateToken.js";
 import Review from "./Models/reviewModels.js";
+import Message from "./Models/messageModels.js";
+import NewsLetter from "./Models/newsLetterModel.js";
 
 
 const resolvers = {
@@ -21,7 +23,8 @@ const resolvers = {
                 throw new Error("You must be login")
             }
             return await Order.find({userid : isAuth._id})
-        }
+        },
+        message : async ()=> await Message.find({}),
     },
 
     Mutation : {
@@ -137,6 +140,35 @@ const resolvers = {
 
             const newFood = new Review({
                 ...createReview
+            })
+
+            console.log(newFood)
+
+            return await newFood.save()
+
+        },
+
+        
+        createmessage : async (_,{createMessage}) =>{
+
+            console.log(createMessage)
+
+            const newFood = new Message({
+                ...createMessage
+            })
+
+            console.log(newFood)
+
+            return await newFood.save()
+
+        },
+
+        createnewsletter : async (_,{createNewsletter}) =>{
+
+            console.log(createNewsletter)
+
+            const newFood = new NewsLetter({
+                ...createNewsletter
             })
 
             console.log(newFood)
